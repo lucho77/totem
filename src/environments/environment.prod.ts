@@ -1,3 +1,7 @@
 export const environment = {
-  production: true
+  production: true,
+  api:'../api/framework/dina',
+  user: 'totemincor',
+  password:  'totemincor'
+
 };

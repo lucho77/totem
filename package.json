@@ -3,9 +3,10 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development",
+    "start": "ng serve --proxy-config proxy.conf.json --host 0.0.0.0",
+    "startDev": "ng serve --aot --proxy-config proxy.conf.json --host 0.0.0.0 -c development",
+    "startProd": "ng serve --aot --proxy-config proxy.conf.json --host 0.0.0.0 -c production",
+    "build2": "ng build --base-href=/SFSFrameworkRest/fw8/ --prod --build-optimizer --aot",
     "test": "ng test"
   },
   "private": true,
@@ -22,6 +23,7 @@
     "primeicons": "^6.0.1",
     "primeng": "^13.1.0",
     "rxjs": "~7.4.0",
+    "rxjs-compat": "^6.6.7",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
   },
