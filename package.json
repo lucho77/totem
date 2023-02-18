@@ -6,13 +6,12 @@
     "start": "ng serve --proxy-config proxy.conf.json --host 0.0.0.0",
     "startDev": "ng serve --aot --proxy-config proxy.conf.json --host 0.0.0.0 -c development",
     "startProd": "ng serve --aot --proxy-config proxy.conf.json --host 0.0.0.0 -c production",
-    "build2": "ng build --base-href=/SFSFrameworkRest/fw8/ --prod --build-optimizer --aot",
+    "build2": "ng build --base-href=/SFSFrameworkRest/totem/ --prod --build-optimizer --aot",
     "test": "ng test"
   },
   "private": true,
   "dependencies": {
     "@angular/animations": "~13.1.0",
-    "@angular/cdk": "^15.1.5",
     "@angular/common": "~13.1.0",
     "@angular/compiler": "~13.1.0",
     "@angular/core": "~13.1.0",
@@ -31,7 +30,7 @@
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~13.1.2",
+    "@angular-devkit/build-angular": "^13.3.10",
     "@angular/cli": "~13.1.2",
     "@angular/compiler-cli": "~13.1.0",
     "@types/jasmine": "~3.10.0",

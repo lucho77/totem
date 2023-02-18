@@ -1,7 +1,7 @@
 export const environment = {
   production: true,
   api:'../api/framework/dina',
-  user: 'totemincor',
-  password:  'totemincor'
+  user: 'totemincord',
+  password:  'totemincord'
 
 };
