@@ -18,15 +18,18 @@ import { HomeComponent } from './components/home.component';
 import {PanelModule} from 'primeng/panel';
 import { ListadoEspeci } from './components/listadoEspeci.component';
 import {NgxPrintModule} from 'ngx-print';
+import { ListadoTurnos } from './components/listadoTurnos.component';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+
 
 @NgModule({
   declarations: [
-    AppComponent, BuscarAfiliado,LoginComponent,ListadoObraSoc,HomeComponent, ListadoEspeci
+    AppComponent, BuscarAfiliado,LoginComponent,ListadoObraSoc,HomeComponent, ListadoEspeci, ListadoTurnos
   ],
   imports: [
     BrowserModule,AppRoutingModule,FieldsetModule,
     HttpClientModule,PanelModule,BrowserAnimationsModule,
-    InputTextModule,ButtonModule,FormsModule,DialogModule,NgxPrintModule
+    InputTextModule,ButtonModule,FormsModule,DialogModule,NgxPrintModule,ConfirmDialogModule
   ],
   providers: [
       { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

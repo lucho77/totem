@@ -45,14 +45,20 @@ public static   ESTADOLIBRE = 'LIBRE';
 public static   BUTTON_GUARDARYVOLVER = 'guardarYvolver';
 public static   METHOD_BUSCAR_COBERTURA = 'busquedaAfiliadoReducida';
 public static   PARAMETRO_PRESTA = 'P_IDPRESTA';
+public static   PARAMETRO_AFILIADO = 'P_IDAFILIADO';
+public static   PARAMETRO_TURNOGRAL = 'P_IDTURNOGRAL';
 public static   PARAMETRO_ADMINIST = 'P_IDADMINIST';
 public static   PARAMETRO_NAME = 'P1';
 public static   PARAMETRO_NAME2 = 'P2';
 public static   PANTALLATRES = 'pantallatres';
+public static   PANTALLACUATRO = 'pantallacuatro';
 public static   PANTALLADOS = 'pantallados';
 public static   PANTALLAUNO = 'pantallauno';
 public static   METHOD_BUSCAR_ESPECIALIDADES_DEMANDA_ESPONTANEA = 'especialidadesConDemandaEspontanea';
+public static   METHOD_CANCELAR_TURNO = 'CancelarTurnoMovil';
 public static   METHOD_PERSISTIR_TURNO_DEMANDA_ESPONTANEA = 'persistirTurnoDE';
+
+public static   REPORTE_TURNOS_CANCELAR_DAR_PRESENTE = 'sfs.reportes.tabular.nativo.salud.ConsultarBorrarTurnosPacientes';
 
 
 }

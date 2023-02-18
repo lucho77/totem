@@ -7,7 +7,9 @@
 
 </app-listado-obra>
 
-<app-listado-especi *ngIf="form.listadoEs" [data]="form.data"  (acciones)="proceesAction($event)">
+<app-listado-especi *ngIf="form.listadoEs" [data]="form.data"  (acciones)="proceesAction($event)"> </app-listado-especi>
+    
+<app-listadoTurnos  *ngIf="form.listadoTurnos" [data]="form.data"  (acciones)="proceesAction($event)">
 
-</app-listado-especi>
+</app-listadoTurnos>
 

@@ -19,6 +19,7 @@ export class HomeComponent implements OnInit{
     buscarAfiliado:true,
     listadoOS:false,
     listadoEs:false,
+    listadoTurnos:false,
     data:{}
   }
   constructor() {}
@@ -33,6 +34,7 @@ export class HomeComponent implements OnInit{
           this.form.buscarAfiliado=false; 
           this.form.listadoEs=false;         
           this.form.listadoOS=true; 
+          this.form.listadoTurnos=false; 
           this.form.data = data;
           break; 
        } 
@@ -40,23 +42,43 @@ export class HomeComponent implements OnInit{
         //statements;
         this.form.buscarAfiliado=false; 
         this.form.listadoOS=false; 
-        this.form.listadoEs=true;         
+        this.form.listadoTurnos=true; 
+        this.form.listadoEs=false;         
         this.form.data = data;
         break; 
      } 
- } 
+     case FrontEndConstants.PANTALLACUATRO: { 
+      //statements;
+      this.form.buscarAfiliado=false; 
+      this.form.listadoOS=false; 
+      this.form.listadoEs=true;
+      this.form.listadoTurnos=false;          
+      this.form.data = data;
+      break; 
+   } 
+} 
 
     }else{
       switch(data.from) { 
         case FrontEndConstants.PANTALLAUNO: { 
-           //statements;
-           this.form.buscarAfiliado=true; 
-           this.form.listadoOS=false; 
-           this.form.listadoEs=false;         
-           this.form.data = data;
-           break; 
-        } 
+          //statements;
+          this.form.buscarAfiliado=true; 
+          this.form.listadoTurnos=false; 
+          this.form.listadoOS=false; 
+          this.form.listadoEs=false;         
+          this.form.data = data;
+          break; 
+       } 
+       case FrontEndConstants.PANTALLATRES: { 
+        //statements;
+        this.form.buscarAfiliado=true; 
+        this.form.listadoTurnos=false; 
+        this.form.listadoOS=false; 
+        this.form.listadoEs=false;         
+        this.form.data = data;
+        break; 
      } 
+ } 
 
     }  
   }

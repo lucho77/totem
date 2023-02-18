@@ -5,8 +5,8 @@
 export const environment = {
   production: false,
   api:'api/framework/dina',
-  user: 'mbergeromd',
-  password:  'kasparov'
+  user: 'totemincord',
+  password:  'totemincord'
 
 };
 
