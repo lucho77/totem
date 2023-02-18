@@ -1,3 +1,4 @@
+import { FrontEndConstants } from "../constants/frontEndConstants";
 import { FormdataReportdef } from "../model/formdata";
 
 export function buscarParametro( parametro:  string, globales: FormdataReportdef[] ) {
@@ -13,7 +14,11 @@ export function buscarParametro( parametro:  string, globales: FormdataReportdef
   export function crearParametro(name: string, type: string, value: any) {
 
     const param = {} as  FormdataReportdef;
-    param.entero = true;
+    if(type===FrontEndConstants.JAVA_LANG_STRING){
+      param.text = true;
+    }else if (type===FrontEndConstants.JAVA_LANG_LONG){
+      param.entero = true;
+    }
     param.name = name;
     param.type  = type;
     param.valueNew = value;

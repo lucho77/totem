@@ -15,15 +15,18 @@ import { BuscarAfiliado } from './components/buscarAfiliado.component';
 import { LoginComponent } from './components/login.component';
 import { ListadoObraSoc } from './components/listadoObraSoc.component';
 import { HomeComponent } from './components/home.component';
+import {PanelModule} from 'primeng/panel';
+import { ListadoEspeci } from './components/listadoEspeci.component';
+import {NgxPrintModule} from 'ngx-print';
 
 @NgModule({
   declarations: [
-    AppComponent, BuscarAfiliado,LoginComponent,ListadoObraSoc,HomeComponent
+    AppComponent, BuscarAfiliado,LoginComponent,ListadoObraSoc,HomeComponent, ListadoEspeci
   ],
   imports: [
-    BrowserModule,
-    AppRoutingModule,FieldsetModule,HttpClientModule,
-    BrowserAnimationsModule,InputTextModule,ButtonModule,FormsModule,DialogModule
+    BrowserModule,AppRoutingModule,FieldsetModule,
+    HttpClientModule,PanelModule,BrowserAnimationsModule,
+    InputTextModule,ButtonModule,FormsModule,DialogModule,NgxPrintModule
   ],
   providers: [
       { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

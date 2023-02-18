@@ -4,10 +4,18 @@
   <div class="col-3"></div>
     <div class="col-6">
       <p-fieldset legend="Seleccione su cobertura">
-    
+        <p>Afiliado/a: {{data.data.data[0][1].value}}</p>
+        <div  *ngFor="let fil of data.data.data; index as i">
+          <p-panel header="{{fil[3].value}}">
+              <p-button label="Seleccionar" icon="pi pi-check" styleClass="p-button-success"(click)="elegirCobertura(fil[0].value)"></p-button>
+          </p-panel>
+          <br>    
+      </div>
+      <p-button label="volver"  icon="pi pi-arrow-left" styleClass="p-button-danger" (click)="back()"></p-button>
+        
       </p-fieldset>
     </div>
+
   </div>
 
-
-
+  

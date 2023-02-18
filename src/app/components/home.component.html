@@ -1,4 +1,13 @@
 
-<app-buscarAfil *ngIf="form.buscarAfiliado">
+<app-buscarAfil *ngIf="form.buscarAfiliado" (acciones)="proceesAction($event)">
 
 </app-buscarAfil>
+
+<app-listado-obra *ngIf="form.listadoOS" [data]="form.data"  (acciones)="proceesAction($event)">
+
+</app-listado-obra>
+
+<app-listado-especi *ngIf="form.listadoEs" [data]="form.data"  (acciones)="proceesAction($event)">
+
+</app-listado-especi>
+

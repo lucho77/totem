@@ -17,9 +17,48 @@ import { buscarParametro, crearParametro } from '../util/reporte.util';
 export class HomeComponent implements OnInit{
    form : any = {
     buscarAfiliado:true,
-    listadoOS:false
+    listadoOS:false,
+    listadoEs:false,
+    data:{}
   }
   constructor() {}
   ngOnInit() {
   }
+  proceesAction(data:any){
+    if(!data.back){
+
+      switch(data.from) { 
+        case FrontEndConstants.PANTALLADOS: { 
+          //statements;
+          this.form.buscarAfiliado=false; 
+          this.form.listadoEs=false;         
+          this.form.listadoOS=true; 
+          this.form.data = data;
+          break; 
+       } 
+       case FrontEndConstants.PANTALLATRES: { 
+        //statements;
+        this.form.buscarAfiliado=false; 
+        this.form.listadoOS=false; 
+        this.form.listadoEs=true;         
+        this.form.data = data;
+        break; 
+     } 
+ } 
+
+    }else{
+      switch(data.from) { 
+        case FrontEndConstants.PANTALLAUNO: { 
+           //statements;
+           this.form.buscarAfiliado=true; 
+           this.form.listadoOS=false; 
+           this.form.listadoEs=false;         
+           this.form.data = data;
+           break; 
+        } 
+     } 
+
+    }  
+  }
+
 }

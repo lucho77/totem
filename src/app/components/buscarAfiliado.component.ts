@@ -1,8 +1,9 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { PrimeNGConfig } from 'primeng/api';
 import { FrontEndConstants } from '../constants/frontEndConstants';
+import { Data } from '../model/data';
 import { FormdataReportdef } from '../model/formdata';
 import { ParametrosExecuteMethodRequestDTO } from '../model/parametrosExecuteMethodRequestDTO';
 import { ReportMethodResponseDTO } from '../model/reportMethodResponseDTO';
@@ -15,6 +16,7 @@ import { buscarParametro, crearParametro } from '../util/reporte.util';
   styleUrls: ['./buscarAfiliado.component.scss']
 })
 export class BuscarAfiliado implements OnInit{
+  @Output()acciones = new EventEmitter<any>();
 	doc:string='';
   mensaje:string='';
   display: boolean = false;
@@ -66,6 +68,12 @@ export class BuscarAfiliado implements OnInit{
             return;
         }
          console.log('result');
+         const d = {} as  Data;
+         d.back=false;
+         d.from=FrontEndConstants.PANTALLADOS;
+         d.data = result.dataTableDTO;
+         this.acciones.emit(d);
+
         // console.log(result);
         // console.log('metadata');
         // console.log(metadata);
