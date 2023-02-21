@@ -14,7 +14,8 @@ import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import {ConfirmationService} from 'primeng/api';
 import { ParametrosExecuteMethodRequestDTO } from '../model/parametrosExecuteMethodRequestDTO';
 import { ReportMethodResponseDTO } from '../model/reportMethodResponseDTO';
-import { DOCUMENT } from '@angular/common';
+declare function print(texto:string): any;
+
 @Component({
   selector: 'app-listadoTurnos',
   templateUrl: './listadoTurnos.component.html',
@@ -26,6 +27,7 @@ export class ListadoTurnos implements OnInit{
   @Input('data')data!: any;
   list:any;
   mensaje:string='';
+  ticket:string='';
   display: boolean = false;
   tieneTurnos = false;
   fday = moment().format('DD-MM-YYYY');
@@ -49,8 +51,57 @@ export class ListadoTurnos implements OnInit{
       data.list = listRequest;
     
   }
-  imprimir(){
+  darPresenteTurno(id:number){
+    const data = {} as ParametrosExecuteMethodRequestDTO;
+    // tslint:disable-next-line:prefer-const
+    // this.loadSpinner.show();
+    data.list = [];
+    data.pdf = false;
+    data.metodo = FrontEndConstants.METHOD_OBTENER_TICKET;
+    const u = localStorage.getItem('currentUser');
+  
+    const g:any = localStorage.getItem('paramGlobal');
+    if(u && g){
+      const user = JSON.parse(u);
+      const global = JSON.parse(g);
+      // console.log('data');
+      // console.log(data);
+  
+      data.list = [];
+  
     
+      const paramRequest = {} as ParamRequestDTO;
+              paramRequest.nombre = FrontEndConstants.PARAMETRO_TURNOGRAL;
+              this.reportdefService.consultarParamByName(user, paramRequest).subscribe
+              ((p: FormdataReportdef) => {
+                p.valueNew = id;
+                p.value = id;
+                data.list.push(p);
+                this.reportdefService.postExecuteMethod(user, data).subscribe
+                ((result: ReportMethodResponseDTO) => {
+                  // this.loadSpinner.hide();
+                   console.log('se ha eliminado el turno correctamente');
+                   this.ticket = result.valor;
+                    print(this.ticket);
+                    this.router.navigate(['/login']);
+                  },
+                 (err: HttpErrorResponse) => {
+                  this.mensaje ="se ha producido un error al intentar obtener la cobertura, por favor intente nuevamente en unos instantes y si persiste el inconveniente. comuniquese con un operador ";
+                  this.display = true;    
+            
+                });
+            
+              },
+               (err: HttpErrorResponse) => {
+                this.display = true;
+                this.mensaje = "se ha producido un error al intentar obtener informacion del servidor, comuniquese con un operador";
+           });
+  
+    }else{
+      this.router.navigate(['/login']);
+      return;
+    }
+  
   }
   cargarTurnos(){
 
@@ -182,8 +233,13 @@ private cancelarTurno( id:number) {
   }
 
 }
-}
-function ViewChild(arg0: string) {
-  throw new Error('Function not implemented.');
+  elegirEspecialidad(){
+    const d = {} as  Data;
+    d.back=false;
+    d.from=FrontEndConstants.PANTALLACUATRO;
+    d.data = this.data.data;
+    this.acciones.emit(d);
+
+  }
 }
 

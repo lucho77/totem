@@ -1,36 +1,28 @@
 
 
 <div class="grid">
-    <div class="col-6 col-offset-3">
-      <p-fieldset legend="Seleccione una especialidad">
+  <div class="col-1"></div>
+  <div class="col-10">
+    <p-panel header="Listado de Turnos">
         <div class="grid">  
-        <div class="col-6" *ngFor="let fil of list; index as i">
-            <p-panel header="{{fil[1].value}}">
-              <p-button label="Seleccionar" icon="pi pi-check" styleClass="p-button-success"(click)="elegirEspeci(fil[1].value)"></p-button>
-          </p-panel>
+          <div class="col-12" *ngFor="let fil of list; index as i">
+            <div class="col-12 md:col-12">
+              <div class="p-inputgroup">
+                <button type="button"  label="seleccionar" pButton pRipple icon="pi pi-check" (click)="elegirEspeci(fil[0].value)" styleClass="p-button-success"></button>    
+                <input type="text"  pInputText disabled value="{{fil[1].value}}">   
+              </div>
+            </div>
           </div>
         </div>
-          <br>    
-
 
         <p-button label="volver"  icon="pi pi-arrow-left" styleClass="p-button-danger" (click)="back()"></p-button>
 
-      </p-fieldset>
+    </p-panel>
     </div>
 
-    <div id="print-section" style="display:none" > 
-      <!--Your html stuff that you want to print-->
-      <p [innerHTML]="mensaje"></p>
-  
-    </div>
-    
-     <!--
-       2)- Add the directive name in your button (ngxPrint),
-       3)- Affect your ID to printSectionId
-     -->
-    <button printSectionId="print-section" ngxPrint>print</button>
-  
+    <div class="col-1"></div>
 
+  
   <p-dialog header="Estimado Paciente" [(visible)]="display">
 
     <p [innerHTML]="mensaje"></p>

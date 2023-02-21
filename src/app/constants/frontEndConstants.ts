@@ -56,6 +56,7 @@ public static   PANTALLADOS = 'pantallados';
 public static   PANTALLAUNO = 'pantallauno';
 public static   METHOD_BUSCAR_ESPECIALIDADES_DEMANDA_ESPONTANEA = 'especialidadesConDemandaEspontanea';
 public static   METHOD_CANCELAR_TURNO = 'CancelarTurnoMovil';
+public static   METHOD_OBTENER_TICKET = 'obtenerTicket';
 public static   METHOD_PERSISTIR_TURNO_DEMANDA_ESPONTANEA = 'persistirTurnoDE';
 
 public static   REPORTE_TURNOS_CANCELAR_DAR_PRESENTE = 'sfs.reportes.tabular.nativo.salud.ConsultarBorrarTurnosPacientes';

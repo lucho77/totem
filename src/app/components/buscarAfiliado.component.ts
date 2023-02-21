@@ -20,7 +20,7 @@ export class BuscarAfiliado implements OnInit{
 	doc:string='';
   mensaje:string='';
   display: boolean = false;
-
+  clicked:boolean=false;
   constructor(private reportdefService: ReportdefService, private router: Router) {}
   ngOnInit() {
   }
@@ -34,6 +34,7 @@ export class BuscarAfiliado implements OnInit{
     if(this.doc =='' || this.doc.length <6  ){
       this.mensaje = "debe ingresar un Nro de DNI válido";
     }else{
+      this.clicked=true;
       this.generarMethod();
 
     }
@@ -83,6 +84,7 @@ export class BuscarAfiliado implements OnInit{
        (err: HttpErrorResponse) => {
         this.mensaje ="se ha producido un error al intentar obtener la cobertura, por favor intente nuevamente en unos instantes y si persiste el inconveniente. comuniquese con un operador ";
         this.display = true;    
+        this.clicked=false;
 
       });
   

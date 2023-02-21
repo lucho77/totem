@@ -1,13 +1,15 @@
 
 
 <div class="grid">
-  <div class="col-3"></div>
-  <div class="col-6">
+  <div class="col-1"></div>
+  <div class="col-10">
     <br>  
     <br>  
     <br>  
     <br>  
-<p-panel header="Turnero Online">
+<p-panel header="Ingrese su Nro de Documento">
+    <p-progressSpinner *ngIf="clicked" ></p-progressSpinner>
+
       <div class="grid p-fluid">
       <div class="col-12 md:col-9">
           <div class="p-inputgroup">
@@ -60,7 +62,7 @@
               <div class="grid">  
                 <div class="col-6">
  
-                  <p-button label="Buscar" icon="pi pi-check" styleClass="w-full p-button-success"(click)="verificarCobertura()"></p-button>
+                  <p-button label="Buscar" [disabled]="clicked" icon="pi pi-check" styleClass="w-full p-button-success"(click)="verificarCobertura()"></p-button>
                 </div>      
               </div>      
           
@@ -68,7 +70,7 @@
             </div>
     
 
-  <div class="col-3"></div>
+  <div class="col-1"></div>
 
   <p-dialog header="Estimado Paciente" [(visible)]="display">
 

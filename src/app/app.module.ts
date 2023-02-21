@@ -20,6 +20,7 @@ import { ListadoEspeci } from './components/listadoEspeci.component';
 import {NgxPrintModule} from 'ngx-print';
 import { ListadoTurnos } from './components/listadoTurnos.component';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import {ProgressSpinnerModule} from 'primeng/progressspinner';
 
 
 @NgModule({
@@ -28,7 +29,7 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
   ],
   imports: [
     BrowserModule,AppRoutingModule,FieldsetModule,
-    HttpClientModule,PanelModule,BrowserAnimationsModule,
+    HttpClientModule,PanelModule,BrowserAnimationsModule,ProgressSpinnerModule,
     InputTextModule,ButtonModule,FormsModule,DialogModule,NgxPrintModule,ConfirmDialogModule
   ],
   providers: [
