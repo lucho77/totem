@@ -1,0 +1,34 @@
+
+
+<div class="grid">
+  <div class="col-1"></div>
+  <div class="col-10">
+    <p-panel header="Listado de Turnos">
+        <div class="grid">  
+          <div class="col-12" *ngFor="let fil of list; index as i">
+            <div class="col-12 md:col-12">
+              <div class="p-inputgroup">
+                <button type="button"  label="seleccionar" pButton pRipple icon="pi pi-check" (click)="elegirEspeci(fil[0].value)" styleClass="p-button-success"></button>    
+                <input type="text"  pInputText disabled value="{{fil[1].value}}">   
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p-button label="volver"  icon="pi pi-arrow-left" styleClass="p-button-danger" (click)="back()"></p-button>
+
+    </p-panel>
+    </div>
+
+    <div class="col-1"></div>
+
+  
+  <p-dialog header="Estimado Paciente" [(visible)]="display">
+
+    <p [innerHTML]="mensaje"></p>
+ 
+</p-dialog>
+</div>
+
+
+
