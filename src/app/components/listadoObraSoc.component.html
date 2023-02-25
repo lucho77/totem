@@ -1,15 +1,14 @@
 
 
 <div class="grid">
-  <div class="col-3"></div>
-    <div class="col-6">
+    <div class="col-12">
       <p-panel header="Seleccione su cobertura">
         <p>Afiliado/a: {{data.data.data[0][1].value}}</p>
 
         
         <div  *ngFor="let fil of data.data.data; index as i">
         
-          <div class="col-12 md:col-9">
+          <div class="col-12 md:col-12">
             <div class="p-inputgroup">
               <input type="text" disabled pInputText value="{{fil[3].value}}">         
               <button type="button" pButton pRipple (click)="elegirCobertura(fil[0].value)" label="seleccionar"></button>
@@ -18,8 +17,11 @@
 
           <br>    
       </div>
-      <p-button label="volver"  icon="pi pi-arrow-left" styleClass="p-button-danger" (click)="back()"></p-button>
-      
+      <div class="grid">  
+        <div class="col-6">
+          <p-button label="volver"  icon="pi pi-arrow-left" styleClass="p-button-secondary" (click)="back()"></p-button>
+        </div>
+      </div>
       </p-panel>
     </div>
 

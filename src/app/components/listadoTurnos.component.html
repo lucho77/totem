@@ -1,7 +1,6 @@
 
 <div class="grid">
-  <div class="col-1"></div>
-  <div class="col-10">
+  <div class="col-12">
     <p-panel header="Listado de Turnos">
       <div class="grid">  
         <div class="col-12" *ngFor="let fil of list.data; index as i">
@@ -18,11 +17,11 @@
       <br>
       <br>
       <div class="grid">  
-        <div class="col-3 w-full">
-          <p-button label="solicitar nuevo turno/cita"  icon="pi pi-calendar" styleClass="p-button-success" (click)="elegirEspecialidad()"></p-button>
+        <div class="col-6">
+          <button pButton pRipple type="button" label="solicitar nuevo turno/cita"  class="w-full p-button-success" icon="pi pi-calendar" (click)="elegirEspecialidad()"></button>
         </div>      
-        <div class="col-3 w-full">
-          <p-button label="volver al comienzo"  icon="pi pi-arrow-left" styleClass="p-button-danger" (click)="back()"></p-button>
+        <div class="col-6">
+          <button pButton pRipple type="button" label="volver al comienzo"  class="w-full p-button-secondary" icon="pi pi-calendar" (click)="back()"></button>
         </div>      
     </div>      
       
@@ -30,9 +29,6 @@
 
     </p-panel>
   </div>
-    
-
-  <div class="col-1"></div>
 
 </div>
   <p-dialog header="Estimado Paciente" [(visible)]="display">

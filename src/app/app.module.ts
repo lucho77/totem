@@ -21,11 +21,13 @@ import {NgxPrintModule} from 'ngx-print';
 import { ListadoTurnos } from './components/listadoTurnos.component';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import {ProgressSpinnerModule} from 'primeng/progressspinner';
+import { ListadoPresta } from './components/listadoPresta.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent, BuscarAfiliado,LoginComponent,ListadoObraSoc,HomeComponent, ListadoEspeci, ListadoTurnos
+    AppComponent, BuscarAfiliado,LoginComponent,ListadoObraSoc,HomeComponent, 
+    ListadoEspeci, ListadoTurnos, ListadoPresta
   ],
   imports: [
     BrowserModule,AppRoutingModule,FieldsetModule,

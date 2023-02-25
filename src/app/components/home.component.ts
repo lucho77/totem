@@ -20,6 +20,7 @@ export class HomeComponent implements OnInit{
     listadoOS:false,
     listadoEs:false,
     listadoTurnos:false,
+    listadoPrestador:false,
     data:{}
   }
   constructor() {}
@@ -35,6 +36,7 @@ export class HomeComponent implements OnInit{
           this.form.listadoEs=false;         
           this.form.listadoOS=true; 
           this.form.listadoTurnos=false; 
+          this.form.listadoPrestador=false;
           this.form.data = data;
           break; 
        } 
@@ -44,6 +46,7 @@ export class HomeComponent implements OnInit{
         this.form.listadoOS=false; 
         this.form.listadoTurnos=true; 
         this.form.listadoEs=false;         
+        this.form.listadoPrestador=false;
         this.form.data = data;
         break; 
      } 
@@ -53,9 +56,20 @@ export class HomeComponent implements OnInit{
       this.form.listadoOS=false; 
       this.form.listadoEs=true;
       this.form.listadoTurnos=false;          
+      this.form.listadoPrestador=false;
       this.form.data = data;
       break; 
    } 
+   case FrontEndConstants.PANTALLACINCO: { 
+    //statements;
+    this.form.buscarAfiliado=false; 
+    this.form.listadoOS=false; 
+    this.form.listadoEs=false;
+    this.form.listadoTurnos=false;          
+    this.form.listadoPrestador=true;
+    this.form.data = data;
+    break; 
+ } 
 } 
 
     }else{
@@ -67,18 +81,30 @@ export class HomeComponent implements OnInit{
           this.form.listadoOS=false; 
           this.form.listadoEs=false;         
           this.form.data = data;
+          this.form.listadoPrestador=false;
           break; 
        } 
        case FrontEndConstants.PANTALLATRES: { 
         //statements;
-        this.form.buscarAfiliado=true; 
-        this.form.listadoTurnos=false; 
+        this.form.buscarAfiliado=false; 
+        this.form.listadoTurnos=true; 
         this.form.listadoOS=false; 
         this.form.listadoEs=false;         
         this.form.data = data;
+        this.form.listadoPrestador=false;
         break; 
      } 
- } 
+     case FrontEndConstants.PANTALLACUATRO: { 
+      //statements;
+      this.form.buscarAfiliado=false; 
+      this.form.listadoTurnos=false; 
+      this.form.listadoOS=false; 
+      this.form.listadoEs=true;         
+      this.form.data = data;
+      this.form.listadoPrestador=false;
+      break; 
+   } 
+} 
 
     }  
   }

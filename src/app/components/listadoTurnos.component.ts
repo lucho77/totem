@@ -33,6 +33,9 @@ export class ListadoTurnos implements OnInit{
   fday = moment().format('DD-MM-YYYY');
   constructor(private reportdefService: ReportdefService, private router: Router,private confirmationService: ConfirmationService) {}
   ngOnInit() {
+    if(!this.data.back){
+      localStorage.setItem('dataTurno', JSON.stringify(this.data));
+    }
     this.cargarTurnos();
   }
   private generateTabularRequestDTO(data: TabularRequestDTO, user: User, g: any , reportdef: string,
@@ -162,7 +165,7 @@ export class ListadoTurnos implements OnInit{
   back(){
     const d = {} as  Data;
     d.back=true;
-    d.from=FrontEndConstants.PANTALLATRES;
+    d.from=FrontEndConstants.PANTALLAUNO;
     this.acciones.emit(d);
 
   }

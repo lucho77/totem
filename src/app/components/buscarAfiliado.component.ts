@@ -23,6 +23,8 @@ export class BuscarAfiliado implements OnInit{
   clicked:boolean=false;
   constructor(private reportdefService: ReportdefService, private router: Router) {}
   ngOnInit() {
+    localStorage.removeItem('dataTurno');
+    localStorage.removeItem('dataEspeci');
   }
   writeNro(nro:string){
     this.doc+=nro;
@@ -61,19 +63,28 @@ export class BuscarAfiliado implements OnInit{
       const dni:any = crearParametro(FrontEndConstants.PARAMETRO_NAME,FrontEndConstants.JAVA_LANG_STRING,this.doc);
       data.list.push(administ,presta,dni);
       this.reportdefService.postExecuteMethod(user, data).subscribe
-      ((result: ReportMethodResponseDTO) => {
+      ((result: any) => {
         // this.loadSpinner.hide();
-        if(result.dataTableDTO.data.length==0){
+        if(result.dataTableDTO.data.length===0){
           this.mensaje ="El documento ingresado no se encuentra ingresado en nuestra base de datos, pasar por secretaria para ingresar sus datos, muchas gracias ";
           this.display = true;    
             return;
+        }else if(result.dataTableDTO.data.length===1){
+          const d = {} as  Data;
+          d.back=false;
+          d.from=FrontEndConstants.PANTALLATRES;
+          d.data = result.dataTableDTO.data[0][0].value;
+          this.acciones.emit(d);
+ 
+        }else{
+          const d = {} as  Data;
+          d.back=false;
+          d.from=FrontEndConstants.PANTALLADOS;
+          d.data = result.dataTableDTO;
+          this.acciones.emit(d);
+ 
         }
-         console.log('result');
-         const d = {} as  Data;
-         d.back=false;
-         d.from=FrontEndConstants.PANTALLADOS;
-         d.data = result.dataTableDTO;
-         this.acciones.emit(d);
+
 
         // console.log(result);
         // console.log('metadata');

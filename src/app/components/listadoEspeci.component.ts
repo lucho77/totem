@@ -23,6 +23,10 @@ export class ListadoEspeci implements OnInit{
   
   ngOnInit() {
     console.log(this.data);
+    if(!this.data.back){
+      localStorage.setItem('dataEspeci', JSON.stringify(this.data));
+    }
+
     this.generarMethod();
   }
 
@@ -73,7 +77,11 @@ export class ListadoEspeci implements OnInit{
 
   }
   elegirEspeci(id:number){
-    console.log(id);
+    const d = {} as  Data;
+    d.back=false;
+    d.from=FrontEndConstants.PANTALLACINCO;
+    d.data = id;
+    this.acciones.emit(d);
   }
   back(){
     const d = {} as  Data;
@@ -82,58 +90,18 @@ export class ListadoEspeci implements OnInit{
     this.acciones.emit(d);
 
   }
-
-
-  private persistirTurno(idEspeci:number ) {
-    const data = {} as ParametrosExecuteMethodRequestDTO;
-    // tslint:disable-next-line:prefer-const
-    // this.loadSpinner.show();
-    data.list = [];
-    data.pdf = false;
-    data.metodo = FrontEndConstants.METHOD_PERSISTIR_TURNO_DEMANDA_ESPONTANEA;
-    const u = localStorage.getItem('currentUser');
-
-    const g:any = localStorage.getItem('paramGlobal');
-    if(u && g){
-      const user = JSON.parse(u);
-      const global = JSON.parse(g);
-      // console.log('data');
-      // console.log(data);
-      const administ:any = buscarParametro(FrontEndConstants.PARAMETRO_ADMINIST,global);
-      const presta:any = buscarParametro(FrontEndConstants.PARAMETRO_PRESTA,global);
-      const especi:any = crearParametro(FrontEndConstants.PARAMETRO_NAME,FrontEndConstants.JAVA_LANG_LONG,idEspeci);
-      const afil:any = crearParametro(FrontEndConstants.PARAMETRO_NAME2,FrontEndConstants.JAVA_LANG_LONG,this.data);
-
-      data.list.push(administ);
-      data.list.push(presta);
-      data.list.push(especi);
-      data.list.push(afil);
-      this.reportdefService.postExecuteMethod(user, data).subscribe
-      ((result: ReportMethodResponseDTO) => {
-        // this.loadSpinner.hide();
-        if(result.valor){
-          this.mensaje ="no se encontraron especialidades disponibles, consulte con un operador  ";
-          this.display = true;    
-            return;
-        }
-        // console.log(result);
-        // console.log('metadata');
-        // console.log(metadata);
-  
-  
-          },
-       (err: HttpErrorResponse) => {
-        this.mensaje ="se ha producido un error al intentar generar el ticket, consulte con un operador ";
-        this.display = true;    
-
-      });
-  
-    }else{
-      this.router.navigate(['/login']);
-      return;
+  backAnt(){
+    const d = {} as  Data;
+    d.back=true;
+    d.from=FrontEndConstants.PANTALLATRES;
+    const du:any = localStorage.getItem('dataTurno');
+    if(du ){
+      const dt = JSON.parse(du);
+      d.data = dt.data;
     }
 
-  }
+    this.acciones.emit(d);
 
+  }
 
 }

@@ -1,26 +1,32 @@
 
 
 <div class="grid">
-  <div class="col-1"></div>
-  <div class="col-10">
-    <p-panel header="Listado de Turnos">
+  <div class="col-12">
+    <p-panel header="Seleccione un Prestador">
         <div class="grid">  
           <div class="col-12" *ngFor="let fil of list; index as i">
             <div class="col-12 md:col-12">
               <div class="p-inputgroup">
-                <button type="button"  label="seleccionar" pButton pRipple icon="pi pi-check" (click)="elegirEspeci(fil[0].value)" styleClass="p-button-success"></button>    
+                <button type="button"  label="seleccionar" pButton pRipple icon="pi pi-check"  (click)="elegirPresta(fil[0].value)" styleClass="p-button-success"></button>    
                 <input type="text"  pInputText disabled value="{{fil[1].value}}">   
               </div>
             </div>
           </div>
         </div>
 
-        <p-button label="volver"  icon="pi pi-arrow-left" styleClass="p-button-danger" (click)="back()"></p-button>
+        <div class="grid">  
+          <div class="col-6">
+            <button pButton pRipple type="button" label="volver pantalla anterior"  class="w-full p-button-secondary" icon="pi pi-arrow-left" (click)="backAnt()"></button>
+          </div>      
+          <div class="col-6">
+            <button pButton pRipple type="button" label="volver al comienzo"  class="w-full p-button-secondary" icon="pi pi-arrow-left" (click)="back()"></button>
+          </div>      
+      </div>      
+    
 
     </p-panel>
     </div>
 
-    <div class="col-1"></div>
 
   
   <p-dialog header="Estimado Paciente" [(visible)]="display">
@@ -29,6 +35,9 @@
  
 </p-dialog>
 </div>
+<iframe style="display: none;" id="print-iframe" name="print-iframe"  width="800" height="600">
+  
+</iframe>
 
 
 

@@ -1,17 +1,16 @@
 
 
 <div class="grid">
-  <div class="col-1"></div>
-  <div class="col-10">
+  <div class="col-12">
     <br>  
     <br>  
     <br>  
     <br>  
-<p-panel header="Ingrese su Nro de Documento">
+<p-panel header="Ingrese su Nro de Documento y presione en BUSCAR">
     <p-progressSpinner *ngIf="clicked" ></p-progressSpinner>
 
       <div class="grid p-fluid">
-      <div class="col-12 md:col-9">
+      <div class="col-12 md:col-12">
           <div class="p-inputgroup">
                 <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
                 <input type="text"  class="w-full" pInputText placeholder="Ingrese su DNI" [(ngModel)]="doc">         
@@ -19,44 +18,44 @@
           </div>
         </div>
           <div class="grid">  
-            <div class="col-3">
+            <div class="col-4">
                 <button pButton pRipple type="button"  class="w-full" label="1"(click)="writeNro('1')"></button>
               </div>      
-              <div class="col-3">
+              <div class="col-4">
                 <button pButton pRipple type="button" class="w-full" label="2"(click)="writeNro('2')"></button>
               </div>      
-              <div class="col-3">
+              <div class="col-4">
                 <button pButton pRipple type="button" class="w-full" label="3"(click)="writeNro('3')"></button>
               </div>
             </div>      
             <div class="grid">  
-              <div class="col-3">
+              <div class="col-4">
                   <button pButton pRipple type="button" class="w-full" label="4"(click)="writeNro('4')"></button>
                 </div>      
-                <div class="col-3">
+                <div class="col-4">
                   <button pButton pRipple type="button" class="w-full" label="5"(click)="writeNro('5')"></button>
                 </div>      
-                <div class="col-3">
+                <div class="col-4">
                   <button pButton pRipple type="button" class="w-full" label="6"(click)="writeNro('6')"></button>
                 </div>
               </div> 
               <div class="grid">  
-                <div class="col-3">
+                <div class="col-4">
                     <button pButton pRipple type="button" class="w-full" label="7"(click)="writeNro('7')"></button>
                   </div>      
-                  <div class="col-3">
+                  <div class="col-4">
                     <button pButton pRipple type="button" class="w-full" label="8"(click)="writeNro('8')"></button>
                   </div>      
-                  <div class="col-3">
+                  <div class="col-4">
                     <button pButton pRipple type="button" class="w-full" label="9"(click)="writeNro('9')"></button>
                   </div>
                 </div>      
                 <div class="grid">  
-                  <div class="col-3">
+                  <div class="col-4">
                     <button pButton pRipple type="button" class="w-full" label="0"(click)="writeNro('0')"></button>
                   </div>      
-                  <div class="col-3">
-                    <button pButton pRipple type="button"  class="w-full p-button-danger" icon="pi pi-arrow-left" (click)="eraseNro()"></button>
+                  <div class="col-4">
+                    <button pButton pRipple type="button"  class="w-full p-button-secondary" icon="pi pi-arrow-left" (click)="eraseNro()"></button>
                   </div>      
               </div>      
               <div class="grid">  
@@ -70,7 +69,6 @@
             </div>
     
 
-  <div class="col-1"></div>
 
   <p-dialog header="Estimado Paciente" [(visible)]="display">
 

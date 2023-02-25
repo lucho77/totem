@@ -1,9 +1,8 @@
 
 
 <div class="grid">
-  <div class="col-1"></div>
-  <div class="col-10">
-    <p-panel header="Listado de Turnos">
+  <div class="col-12">
+    <p-panel header="Seleccione una especialidad">
         <div class="grid">  
           <div class="col-12" *ngFor="let fil of list; index as i">
             <div class="col-12 md:col-12">
@@ -15,12 +14,19 @@
           </div>
         </div>
 
-        <p-button label="volver"  icon="pi pi-arrow-left" styleClass="p-button-danger" (click)="back()"></p-button>
+        <div class="grid">  
+          <div class="col-6">
+            <button pButton pRipple type="button" label="volver pantalla anterior"  class="w-full p-button-secondary" icon="pi pi-arrow-left" (click)="backAnt()"></button>
+          </div>      
+          <div class="col-6">
+            <button pButton pRipple type="button" label="volver al comienzo"  class="w-full p-button-secondary" icon="pi pi-arrow-left" (click)="back()"></button>
+          </div>      
+      </div>      
+    
 
     </p-panel>
     </div>
 
-    <div class="col-1"></div>
 
   
   <p-dialog header="Estimado Paciente" [(visible)]="display">
