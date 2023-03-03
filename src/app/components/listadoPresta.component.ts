@@ -47,8 +47,8 @@ export class ListadoPresta implements OnInit{
               paramRequest.nombre = FrontEndConstants.PARAMETRO_ESPECI;
               this.reportdefService.consultarParamByName(user, paramRequest).subscribe
               ((p: FormdataReportdef) => {
-                p.valueNew = Number(this.data.data);
-                p.value = Number(this.data.data);
+                p.valueNew = parseInt(this.data.data);
+                p.value = parseInt(this.data.data);
                 list.push(p);
                 list.push(administ);
                 this.buscarPrestadores(user,list);

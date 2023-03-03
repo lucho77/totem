@@ -1,0 +1,32 @@
+import { HttpErrorResponse } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { PrimeNGConfig } from 'primeng/api';
+import { environment } from 'src/environments/environment';
+import { AuthenticationService } from '../services/authentication.service';
+
+@Component({
+  selector: 'app-connect',
+  templateUrl: './connect.component.html',
+  styleUrls: ['./connect.component.scss']
+})
+export class ConnectComponent implements OnInit{
+  login : any = {
+    user:environment.user,
+    password:environment.password,
+  }
+
+  constructor(private router: Router, private acRoute: ActivatedRoute){
+
+  }
+
+  ngOnInit(): void {
+    this.acRoute.params.subscribe( params => {
+      this.login.user = params['usuario'];
+      this.login.password = params['pass'];
+      localStorage.setItem('login',JSON.stringify(this.login));
+      this.router.navigate(['/login']);
+    });
+  } 
+
+}

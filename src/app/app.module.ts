@@ -22,12 +22,13 @@ import { ListadoTurnos } from './components/listadoTurnos.component';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import {ProgressSpinnerModule} from 'primeng/progressspinner';
 import { ListadoPresta } from './components/listadoPresta.component';
+import { ConnectComponent } from './components/connect.component';
 
 
 @NgModule({
   declarations: [
     AppComponent, BuscarAfiliado,LoginComponent,ListadoObraSoc,HomeComponent, 
-    ListadoEspeci, ListadoTurnos, ListadoPresta
+    ListadoEspeci, ListadoTurnos, ListadoPresta,ConnectComponent
   ],
   imports: [
     BrowserModule,AppRoutingModule,FieldsetModule,
