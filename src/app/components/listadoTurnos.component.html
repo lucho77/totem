@@ -7,7 +7,7 @@
           <div class="col-12 md:col-12">
             <div class="p-inputgroup">
               <button type="button"  *ngIf="fday===fil[2].value" label="dar presente" pButton pRipple icon="pi pi-check" (click)="darPresenteTurno(fil[1].value)" styleClass="p-button-success"></button>    
-              <input type="text"  pInputText disabled value="fecha: {{fil[2].value}} hora: {{fil[3].value}} Prestador: {{fil[5].value}}">   
+              <input type="text"  pInputText disabled value="fecha: {{fil[2].value}} hora: {{fil[3].value}} Prestador: {{fil[5].value}} Especialidad: {{fil[6].value}}">   
               <button type="button" label="cancelar turno" (click)="confirm(fil[1].value)" pButton pRipple icon="pi pi-times"  class="p-button-danger"></button>    
             </div>
           </div>
