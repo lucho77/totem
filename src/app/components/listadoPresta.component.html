@@ -7,8 +7,8 @@
           <div class="col-12" *ngFor="let fil of list; index as i">
             <div class="col-12 md:col-12">
               <div class="p-inputgroup">
-                <button type="button"  label="seleccionar" pButton pRipple icon="pi pi-check"  (click)="elegirPresta(fil[0].value)" styleClass="p-button-success"></button>    
-                <input type="text"  pInputText disabled value="{{fil[1].value}}">   
+                <button style="height: 70px" type="button"  label="seleccionar" pButton pRipple icon="pi pi-check"  (click)="elegirPresta(fil[0].value)" styleClass="p-button-success"></button>    
+                <input type="text"  pInputText  value="{{fil[1].value}}">   
               </div>
             </div>
           </div>
@@ -16,10 +16,10 @@
 
         <div class="grid">  
           <div class="col-6">
-            <button pButton pRipple type="button" label="volver pantalla anterior"  class="w-full p-button-secondary" icon="pi pi-arrow-left" (click)="backAnt()"></button>
+            <button style="height: 70px" pButton pRipple type="button" label="volver pantalla anterior"  class="w-full p-button-secondary" icon="pi pi-arrow-left" (click)="backAnt()"></button>
           </div>      
           <div class="col-6">
-            <button pButton pRipple type="button" label="volver al comienzo"  class="w-full p-button-secondary" icon="pi pi-arrow-left" (click)="back()"></button>
+            <button style="height: 70px" pButton pRipple type="button" label="volver al comienzo"  class="w-full p-button-secondary" icon="pi pi-arrow-left" (click)="back()"></button>
           </div>      
       </div>      
     

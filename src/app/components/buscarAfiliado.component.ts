@@ -67,6 +67,7 @@ export class BuscarAfiliado implements OnInit{
         // this.loadSpinner.hide();
         if(result.dataTableDTO.data.length===0){
           this.mensaje ="El documento ingresado no se encuentra ingresado en nuestra base de datos, pasar por secretaria para ingresar sus datos, muchas gracias ";
+          this.clicked=false;
           this.display = true;    
             return;
         }else if(result.dataTableDTO.data.length===1){

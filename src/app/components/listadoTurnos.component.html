@@ -6,8 +6,8 @@
         <div class="col-12" *ngFor="let fil of list.data; index as i">
           <div class="col-12 md:col-12">
             <div class="p-inputgroup">
-              <button type="button"  *ngIf="fday===fil[2].value" label="dar presente" pButton pRipple icon="pi pi-check" (click)="darPresenteTurno(fil[1].value)" styleClass="p-button-success"></button>    
-              <input type="text"  pInputText disabled value="fecha: {{fil[2].value}} hora: {{fil[3].value}} Prestador: {{fil[5].value}} Especialidad: {{fil[6].value}}">   
+              <button type="button"  style="height: 70px" *ngIf="fday===fil[2].value" label="dar presente" pButton pRipple icon="pi pi-check" (click)="darPresenteTurno(fil[1].value)"></button>    
+              <input type="text"  pInputText  value="fecha: {{fil[2].value}} hora: {{fil[3].value}} Prestador: {{fil[5].value}} Especialidad: {{fil[6].value}}">   
               <button type="button" label="cancelar turno" (click)="confirm(fil[1].value)" pButton pRipple icon="pi pi-times"  class="p-button-danger"></button>    
             </div>
           </div>
@@ -18,10 +18,10 @@
       <br>
       <div class="grid">  
         <div class="col-6">
-          <button pButton pRipple type="button" label="solicitar nuevo turno/cita"  class="w-full p-button-success" icon="pi pi-calendar" (click)="elegirEspecialidad()"></button>
+          <button style="height: 70px" pButton pRipple type="button" label="solicitar nuevo turno/cita"  class="w-full p-button-success" icon="pi pi-calendar" (click)="elegirEspecialidad()"></button>
         </div>      
         <div class="col-6">
-          <button pButton pRipple type="button" label="volver al comienzo"  class="w-full p-button-secondary" icon="pi pi-calendar" (click)="back()"></button>
+          <button style="height: 70px" pButton pRipple type="button" label="volver al comienzo"  class="w-full p-button-secondary" icon="pi pi-calendar" (click)="back()"></button>
         </div>      
     </div>      
       
