@@ -13,8 +13,9 @@ import { buscarParametro, crearParametro } from '../util/reporte.util';
 @Component({
   selector: 'app-buscarAfil',
   templateUrl: './buscarAfiliado.component.html',
-  styleUrls: ['./buscarAfiliado.component.scss']
+  styleUrls: ['./buscarAfiliado.component.scss'],
 })
+
 export class BuscarAfiliado implements OnInit{
   @Output()acciones = new EventEmitter<any>();
 	doc:string='';
