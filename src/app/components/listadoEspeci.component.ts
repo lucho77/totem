@@ -3,7 +3,9 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { FrontEndConstants } from '../constants/frontEndConstants';
 import { Data } from '../model/data';
+import { FormdataReportdef } from '../model/formdata';
 import { ParametrosExecuteMethodRequestDTO } from '../model/parametrosExecuteMethodRequestDTO';
+import { ParamRequestDTO } from '../model/paramRequestDTO';
 import { ReportMethodResponseDTO } from '../model/reportMethodResponseDTO';
 import { ReportdefService } from '../services/reportdef.service';
 import { buscarParametro, crearParametro } from '../util/reporte.util';
@@ -30,7 +32,7 @@ export class ListadoEspeci implements OnInit{
     this.generarMethod();
   }
 
-  private generarMethod( ) {
+  private async generarMethod( ) {
     const data = {} as ParametrosExecuteMethodRequestDTO;
     // tslint:disable-next-line:prefer-const
     // this.loadSpinner.show();
@@ -41,13 +43,21 @@ export class ListadoEspeci implements OnInit{
     const u = localStorage.getItem('currentUser');
 
     const g:any = localStorage.getItem('paramGlobal');
+    const l:any = localStorage.getItem('login');
     if(u && g){
       const user = JSON.parse(u);
       const global = JSON.parse(g);
+      const login = JSON.parse(l);
       // console.log('data');
       // console.log(data);
       const administ:any = buscarParametro(FrontEndConstants.PARAMETRO_ADMINIST,global);
+      const grupReal:any = await this.buscarParamGrupReal(user,login.idGrupReal);
+
+
+
+
       data.list.push(administ);
+      data.list.push(grupReal);
       this.reportdefService.postExecuteMethod(user, data).subscribe
       ((result: ReportMethodResponseDTO) => {
         // this.loadSpinner.hide();
@@ -103,5 +113,30 @@ export class ListadoEspeci implements OnInit{
     this.acciones.emit(d);
 
   }
+
+ buscarParamGrupReal(user:any, id:number){
+  return new Promise(resolve => {
+    const paramRequest = {} as ParamRequestDTO;
+    paramRequest.nombre = FrontEndConstants.PARAMETRO_GRUPREAL;
+    this.reportdefService.consultarParamByName(user, paramRequest).subscribe
+    ((p: FormdataReportdef) => {
+      p.valueNew = id;
+      p.value = id;
+      resolve(p);
+    },
+      (err: HttpErrorResponse) => {
+        this.mensaje ="se ha producido un error al intentar obtener el parametro grupreal ";
+        this.display = true;
+        return;                
+      });
+
+
+  });
+
+
+
+
+}
+
 
 }

@@ -47,6 +47,7 @@ public static   METHOD_BUSCAR_COBERTURA = 'busquedaAfiliadoReducida';
 public static   PARAMETRO_PRESTA = 'P_IDPRESTA';
 public static   PARAMETRO_AFILIADO = 'P_IDAFILIADO';
 public static   PARAMETRO_TURNOGRAL = 'P_IDTURNOGRAL';
+public static   PARAMETRO_GRUPREAL = 'P_IDGRUPREAL';
 public static   PARAMETRO_ESPECI = 'P_IDESPECI';
 public static   PARAMETRO_ADMINIST = 'P_IDADMINIST';
 public static   PARAMETRO_NAME = 'P1';
