@@ -79,7 +79,7 @@ export class ListadoPresta implements OnInit{
     // this.loadSpinner.show();
     data.list = list;
     data.pdf = false;
-    data.metodo = FrontEndConstants.METHOD_BUSCAR_PRESTADOR_ESPECIALIDAD;
+    data.metodo = FrontEndConstants.METHOD_BUSCAR_PRESTADOR_ESPECIALIDAD2;
     data.metodoFinder=true;
 
     this.reportdefService.postExecuteMethod(user, data).subscribe
