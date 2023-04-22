@@ -122,6 +122,8 @@ export class ListadoEspeci implements OnInit{
     ((p: FormdataReportdef) => {
       p.valueNew = id;
       p.value = id;
+      localStorage.setItem("grupReal",JSON.stringify(p));
+
       resolve(p);
     },
       (err: HttpErrorResponse) => {
