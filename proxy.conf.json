@@ -1,7 +1,7 @@
 {
  
     "/api/*": {
-        "target": "http://localhost:8080/",
+        "target": "https://fw514.sfssa.com.ar/",
         "secure": false,
         "logLevel": "debug",
         "changeOrigin": true,
@@ -11,7 +11,7 @@
     },
 
     "/externalAcces/*": {
-        "target": "http://localhost:8080/",
+        "target": "https://fw514.sfssa.com.ar/",
         "secure": false,
         "changeOrigin": true,
         "pathRewrite": {

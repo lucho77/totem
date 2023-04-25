@@ -17,3 +17,9 @@ export class AppComponent {
   }
 
 }
+
+window.onload = function() {
+  document.addEventListener("contextmenu", function(e){
+    e.preventDefault();
+  }, false);
+} 
