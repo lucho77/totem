@@ -3,12 +3,12 @@
   <div class="col-12">
     <p-panel header="Listado de Turnos">
       <div class="grid">  
-        <div class="col-12" *ngFor="let fil of list.data; index as i">
+        <div class="col-12" *ngFor="let fil of list; index as i">
           <div class="col-12 md:col-12">
             <div class="p-inputgroup">
-              <button type="button"  *ngIf="fday===fil[2].value" label="dar presente" pButton pRipple icon="pi pi-check" (click)="darPresenteTurno(fil[1].value)" class="btn-afi"></button>    
+              <button type="button"  *ngIf="fday===fil[2].value" label="Dar presente" pButton pRipple icon="pi pi-check" (click)="darPresenteTurno(fil[1].value)" class="btn-afi"></button>     
               <input type="text"  pInputText  value="fecha: {{fil[2].value}} hora: {{fil[3].value}} Prestador: {{fil[5].value}} Especialidad: {{fil[6].value}}">   
-              <button type="button" label="cancelar turno" (click)="confirm(fil[1].value)" pButton pRipple icon="pi pi-times"  class="p-button-danger btn-afi"></button>    
+              <button type="button" label="Cancelar turno" (click)="confirm(fil[1].value)" pButton pRipple icon="pi pi-times"  class="p-button-danger btn-afi"></button>    
             </div>
           </div>
         </div>
@@ -18,10 +18,10 @@
       <br>
       <div class="grid">  
         <div class="col-6">
-          <button pButton pRipple type="button" label="solicitar nuevo turno/cita"  class="w-full p-button-success btn-afi" icon="pi pi-calendar" (click)="elegirEspecialidad()"></button>
+          <button pButton pRipple type="button" label="Solicitar nuevo turno/cita"  class="w-full p-button-success btn-afi" icon="pi pi-calendar" (click)="elegirEspecialidad()"></button>
         </div>      
         <div class="col-6">
-          <button pButton pRipple type="button" label="volver al comienzo"  class="w-full p-button-secondary btn-afi" icon="pi pi-calendar" (click)="back()"></button>
+          <button pButton pRipple type="button" label="Volver al comienzo"  class="w-full p-button-secondary btn-afi" icon="pi pi-calendar" (click)="back()"></button>
         </div>      
     </div>      
       

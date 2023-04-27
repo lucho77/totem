@@ -14,6 +14,7 @@ export class ConnectComponent implements OnInit{
   login : any = {
     user:environment.user,
     password:environment.password,
+    idGrupReal:0
   }
 
   constructor(private router: Router, private acRoute: ActivatedRoute){
@@ -24,6 +25,7 @@ export class ConnectComponent implements OnInit{
     this.acRoute.params.subscribe( params => {
       this.login.user = params['usuario'];
       this.login.password = params['pass'];
+      this.login.idGrupReal = params['idGrupReal'];
       localStorage.setItem('login',JSON.stringify(this.login));
       this.router.navigate(['/login']);
     });

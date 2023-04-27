@@ -5,7 +5,7 @@ export function devolverProyecto () {
        //https://fw514.sfssa.com.ar/
        //const api = 'https://fw514.sfssa.com.ar/SFSFrameworkRest/api/framework/dina';
        const api = 'api/framework/dina';
-       console.log(environment.api)
-//    return environment.api;
-    return 'https://fw514.sfssa.com.ar/SFSFrameworkRest/api/framework/dina';
+          console.log(environment.api)
+    // return environment.api;
+    return 'https://online1.sfssa.com.ar/SFSFrameworkRest/api/framework/dina';
 }

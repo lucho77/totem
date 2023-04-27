@@ -2,14 +2,16 @@
 // :host ::ng-deep .p-panel .p-panel-header,
 // :host ::ng-deep .p-panel .p-panel-content
 $size1: 2em;
-$size2:1.5em;
+$size2:1.8em;
 :host ::ng-deep .p-panel.p-component{
     max-width: 1500px;
     margin: 100px auto;
+    margin-top: 80px;
 }
 
 :host ::ng-deep .p-panel .p-panel-content{
     background:#D2DEE5;
+    user-select: none;
 }
 
 :host ::ng-deep .p-panel .p-panel-header{
@@ -17,14 +19,16 @@ $size2:1.5em;
     background-image: url('../logo\ SFS\ 2.png');
     background-repeat: no-repeat;
     background-position: 98.6% 50%; 
-    background-size: 6%;
+    background-size: 12%;
+    height: 100px;
+    font-size: 25px;
     color:#fff;
     user-select: none;
 }
 .btn-afi{
     height: 120px;
     font-size:$size1;
-    // opacity: 0.95;
+    margin-bottom: 10px;
 }
 .btn-b{
     display: flex;
@@ -45,4 +49,13 @@ $size2:1.5em;
 }
 .input-afi{
     font-size: $size2;
+}
+.inputgroupafi{
+    margin: 30px 0;
+}
+.inputListado{
+    pointer-events: none;
+    user-select: none;
+    font-size: 25px;
+    height: 120px;
 }

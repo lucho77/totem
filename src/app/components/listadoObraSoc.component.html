@@ -10,8 +10,8 @@
         
           <div class="col-12 md:col-12">
             <div class="p-inputgroup">
-              <input type="text" disabled pInputText value="{{fil[3].value}}">         
-              <button type="button" pButton pRipple (click)="elegirCobertura(fil[0].value)" label="seleccionar"></button>
+              <input class="inputListado" type="text" disabled pInputText value="{{fil[3].value}}">         
+              <button class="btn-afi btnlistado" type="button" pButton pRipple (click)="elegirCobertura(fil[0].value)" label="Seleccionar"></button>
             </div>
         </div>
 
@@ -19,7 +19,7 @@
       </div>
       <div class="grid">  
         <div class="col-6">
-          <p-button label="volver"  icon="pi pi-arrow-left" styleClass="p-button-secondary" (click)="back()"></p-button>
+          <p-button label="Volver"  icon="pi pi-arrow-left" styleClass="p-button-secondary" (click)="back()"></p-button>
         </div>
       </div>
       </p-panel>

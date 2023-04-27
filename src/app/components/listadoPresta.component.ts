@@ -38,10 +38,14 @@ export class ListadoPresta implements OnInit{
     if(u && g){
       const user = JSON.parse(u);
       const global = JSON.parse(g);
+      const real:any = localStorage.getItem('grupReal');
       // console.log('data');
       // console.log(data);
       const contenido:any = crearParametro(FrontEndConstants.PARAMETRO_NAME,FrontEndConstants.JAVA_LANG_STRING,"");
       const administ:any = buscarParametro(FrontEndConstants.PARAMETRO_ADMINIST,global);
+
+      
+
       list.push(contenido);
       const paramRequest = {} as ParamRequestDTO;
               paramRequest.nombre = FrontEndConstants.PARAMETRO_ESPECI;
@@ -51,6 +55,9 @@ export class ListadoPresta implements OnInit{
                 p.value = parseInt(this.data.data);
                 list.push(p);
                 list.push(administ);
+                if(real){
+                  list.push(JSON.parse(real));
+                }
                 this.buscarPrestadores(user,list);
                 },
                  (err: HttpErrorResponse) => {
@@ -72,7 +79,7 @@ export class ListadoPresta implements OnInit{
     // this.loadSpinner.show();
     data.list = list;
     data.pdf = false;
-    data.metodo = FrontEndConstants.METHOD_BUSCAR_PRESTADOR_ESPECIALIDAD;
+    data.metodo = FrontEndConstants.METHOD_BUSCAR_PRESTADOR_ESPECIALIDAD2;
     data.metodoFinder=true;
 
     this.reportdefService.postExecuteMethod(user, data).subscribe
