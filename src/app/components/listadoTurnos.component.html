@@ -3,7 +3,7 @@
   <div class="col-12">
     <p-panel header="Listado de Turnos">
       <div class="grid">  
-        <div class="col-12" *ngFor="let fil of list; index as i">
+        <div class="col-12" *ngFor="let fil of list.data; index as i">
           <div class="col-12 md:col-12">
             <div class="p-inputgroup">
               <button type="button"  *ngIf="fday===fil[2].value" label="Dar presente" pButton pRipple icon="pi pi-check" (click)="darPresenteTurno(fil[1].value)" class="btn-afi"></button>     
