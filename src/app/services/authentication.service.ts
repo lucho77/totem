@@ -3,6 +3,9 @@ import { HttpClient, HttpParams, HttpErrorResponse } from '@angular/common/http'
 import { map } from 'rxjs/operators';
 import { devolverProyecto } from '../util/proyectoUtil';
 import { ParametrosGlobalesDTO } from '../model/parametrosGlobalesDTO';
+import { Observable } from 'rxjs';
+import { RefreshTokenResponse } from '../model/refreshTokenResponse';
+import { RefreshToken } from '../model/refreshToken';
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
     menu: any = [];
@@ -22,5 +25,14 @@ export class AuthenticationService {
         this.parametroGlobales = this.http.get<ParametrosGlobalesDTO>(`${devolverProyecto()}/obtenerParametrosGlobales/${username}/${datasource}/${idUsuarioUra}/${packageAplication}`);
         return this.parametroGlobales;
     }
+    refreshToken(user:any) : Observable<RefreshTokenResponse>{
+        let data = new RefreshToken; 
+        data.username = user.username;
+        data.tokenExpired = user.token;
+        data.refreshToken = user.refreshToken;
+        data.idUsuarioUra = user.idUsuarioUra;
+        return this.http.post<RefreshTokenResponse>(`${devolverProyecto()}/refreshToken/`,data);
+    }
+
 
 }

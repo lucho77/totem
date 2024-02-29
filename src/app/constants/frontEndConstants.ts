@@ -64,7 +64,8 @@ export class FrontEndConstants {
     public static   METHOD_PERSISTIR_TURNO_DEMANDA_ESPONTANEA = 'persistirTurnoDE';
     
     public static   REPORTE_TURNOS_CANCELAR_DAR_PRESENTE = 'sfs.reportes.tabular.nativo.salud.ConsultarBorrarTurnosPacientes';
-    
+    public static    URL_REFRESHTOKEN = 'refreshToken';
+
     
     }
     

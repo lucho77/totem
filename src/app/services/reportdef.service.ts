@@ -33,7 +33,7 @@ export class ReportdefService {
             webServicesAddress: user.webservice,
             modelPackage: user.packageModel,
             reporte: reportdef,
-            idSessionUser: null,
+            idSessionUser: 'aaaa',
             global: global,
             list: paramForm,
         };
@@ -51,7 +51,7 @@ export class ReportdefService {
             webServicesAddress: user.webservice,
             modelPackage: user.packageModel,
             reporte: reportdef,
-            idSessionUser: null,
+            idSessionUser: 'aaaaa',
             global: global,
             list: paramForm,
             aplicacion: user.aplicacion
